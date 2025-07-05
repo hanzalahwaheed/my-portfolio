@@ -7,18 +7,18 @@
     @apply fixed inset-0 pointer-events-none;
     background-image: radial-gradient(
       circle at var(--mouse-x) var(--mouse-y),
-      rgba(63, 81, 181, 0.3) 0%,
-      rgba(63, 81, 181, 0.15) 30%,
-      rgba(63, 81, 181, 0) 50%
+      rgba(34, 85, 54, 0.3) 0%,
+      rgba(34, 85, 54, 0.15) 30%,
+      rgba(34, 85, 54, 0) 50%
     );
 
     /* Media query for touch devices */
     @media (hover: none) and (pointer: coarse) {
       background-image: radial-gradient(
         circle at top left,
-        rgba(63, 81, 181, 0.3) 0%,
-        rgba(63, 81, 181, 0.15) 30%,
-        rgba(63, 81, 181, 0) 50%
+        rgba(24, 64, 40, 0.3) 0%,
+        rgba(24, 64, 40, 0.15) 30%,
+        rgba(24, 64, 40, 0) 50%
       );
     }
   }
@@ -26,48 +26,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 50% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 50% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 50% 10%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --background: 160 50% 10%; /* Dark Rich Green */
+    --foreground: 140 30% 85%; /* Light Muted Green */
+    --card: 160 45% 12%;
+    --card-foreground: 140 30% 85%;
+    --popover: 160 45% 12%;
+    --popover-foreground: 140 30% 85%;
+    --primary: 155 60% 35%; /* Medium Green */
+    --primary-foreground: 140 20% 95%;
+    --secondary: 160 40% 18%;
+    --secondary-foreground: 140 30% 85%;
+    --muted: 160 30% 16%;
+    --muted-foreground: 140 15% 65%;
+    --accent: 160 35% 20%;
+    --accent-foreground: 140 30% 85%;
+    --destructive: 0 70% 40%; /* Muted Red */
+    --destructive-foreground: 140 30% 95%;
+    --border: 160 30% 22%;
+    --input: 160 30% 22%;
+    --ring: 155 60% 35%;
     --radius: 1rem;
   }
 
   .dark {
-    --background: 222.2 50% 10%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 50% 10%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 50% 10%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: 160 50% 5%; /* Even Darker Rich Green */
+    --foreground: 140 30% 90%;
+    --card: 160 45% 8%;
+    --card-foreground: 140 30% 90%;
+    --popover: 160 45% 8%;
+    --popover-foreground: 140 30% 90%;
+    --primary: 155 60% 30%;
+    --primary-foreground: 140 30% 95%;
+    --secondary: 160 40% 14%;
+    --secondary-foreground: 140 30% 90%;
+    --muted: 160 30% 12%;
+    --muted-foreground: 140 20% 75%;
+    --accent: 160 35% 16%;
+    --accent-foreground: 140 30% 90%;
+    --destructive: 0 70% 35%;
+    --destructive-foreground: 140 30% 95%;
+    --border: 160 30% 18%;
+    --input: 160 30% 18%;
+    --ring: 155 60% 30%;
   }
 }
 
@@ -86,7 +86,7 @@
   margin-right: 1rem;
   height: 1px;
   width: 2rem;
-  background-color: #64748b;
+  background-color: #2a5934; /* Dark green */
   transition: all 0.15s ease-in-out;
 }
 
@@ -94,22 +94,22 @@
 .group:focus-within .nav-indicator {
   width: 4rem;
   height: 2px;
-  background-color: #0d1426;
+  background-color: #1e4027; /* Even darker green */
 }
 
 .nav-indicator.active,
 .group .nav-indicator.active {
   width: 4rem;
   height: 2px;
-  background-color: #0d1426;
+  background-color: #1e4027;
 }
 
 .dark .group:hover .nav-indicator,
 .dark .group:focus-within .nav-indicator {
-  background-color: #e2e8f0;
+  background-color: #a3d9a5; /* Light desaturated green */
 }
 
 .dark .nav-indicator.active,
 .dark .group .nav-indicator.active {
-  background-color: #e2e8f0;
+  background-color: #a3d9a5;
 }
