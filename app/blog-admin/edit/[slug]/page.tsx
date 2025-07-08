@@ -5,6 +5,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getPostById, updatePost, type BlogPost } from '@/lib/blog-service';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+// Import the MarkdownEditor component with SSR disabled
+const MarkdownEditor = dynamic(
+  () => import('@/components/MarkdownEditor'),
+  { ssr: false }
+);
 
 export default function EditBlogPost({ params }: { params: { slug: string } }) {
   const [post, setPost] = useState<BlogPost | null>(null);
@@ -180,13 +187,12 @@ export default function EditBlogPost({ params }: { params: { slug: string } }) {
           
           <div>
             <label htmlFor="content" className="block text-sm font-medium mb-1">Content (Markdown)</label>
-            <textarea
-              id="content"
+            <MarkdownEditor
               value={content}
-              onChange={(e) => setContent(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 h-96 font-mono text-sm"
-              required
-            ></textarea>
+              onChange={setContent}
+              height={500}
+              placeholder="Write your post content here (Markdown supported)..."
+            />
           </div>
           
           <div className="flex justify-end space-x-4 pt-4">

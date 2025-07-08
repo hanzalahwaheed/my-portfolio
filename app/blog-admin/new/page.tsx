@@ -1,11 +1,16 @@
 "use client";
 
-"use client";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createPost } from "@/lib/blog-service";
+import dynamic from 'next/dynamic';
+
+// Import the MarkdownEditor component with SSR disabled
+const MarkdownEditor = dynamic(
+  () => import('@/components/MarkdownEditor'),
+  { ssr: false }
+);
 
 export default function NewBlogPost() {
 	const [title, setTitle] = useState("");
@@ -116,17 +121,17 @@ export default function NewBlogPost() {
 					</div>
 
 					<div>
-						<label htmlFor="title" className="mb-1 block text-sm font-medium">
-							Content
-						</label>
-						<textarea
-							id="content"
-							value={content}
-							onChange={e => setContent(e.target.value)}
-							className="h-96 w-full rounded-md border px-3 py-2 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800"
-							placeholder="Write your post content here (Markdown supported)"
-							required
-						/>
+						<div>
+							<label htmlFor="content" className="mb-1 block text-sm font-medium">
+								Content
+							</label>
+							<MarkdownEditor
+								value={content}
+								onChange={setContent}
+								height={500}
+								placeholder="Write your post content here (Markdown supported)..."
+							/>
+						</div>
 					</div>
 
 					<div>
